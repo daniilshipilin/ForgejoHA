@@ -1,0 +1,43 @@
+{
+  "name": "Forgejo",
+  "version": "16.0.5",
+  "slug": "forgejoha",
+  "description": "Self-hosted lightweight software forge",
+  "url": "https://github.com/daniilshipilin/forgejoha/tree/main",
+  "arch": [
+    "aarch64",
+    "amd64"
+  ],
+  "map": [
+    "share:rw",
+    "ssl:ro"
+  ],
+  "ingress": true,
+  "ingress_port": 3001,
+  "ingress_stream": true,
+  "init": false,
+  "panel_icon": "mdi:git",
+  "panel_title": "Forgejo",
+  "options": {
+    "domain": "",
+    "ssh_port": 2222,
+    "ssl": false,
+    "certfile": "/ssl/fullchain.crt",
+    "keyfile": "/ssl/privkey.pem"
+  },
+  "schema": {
+    "domain": "str",
+    "ssh_port": "int",
+    "ssl": "bool",
+    "certfile": "str",
+    "keyfile": "str"
+  },
+  "ports": {
+    "3000/tcp": 3000,
+    "22/tcp": 2222
+  },
+  "ports_description": {
+    "3000/tcp": "Web interface (Not required for Ingress)",
+    "22/tcp": "SSH for git operations"
+  }
+}
